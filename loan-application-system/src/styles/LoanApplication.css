@@ -1,0 +1,102 @@
+/* Loan Application Container */
+.loan-app-container {
+    width: 50%;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: "Arial", sans-serif;
+}
+
+/* Progress Bar */
+.loan-app-progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 5px;
+    background: #e0e0e0;
+    border-radius: 8px;
+    position: relative;
+}
+
+.loan-app-step {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px 0;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.loan-app-step.active {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+/* Form Section */
+.loan-app-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 22px;
+}
+
+/* Input Fields */
+.loan-app-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.loan-app-input:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* File Upload */
+.loan-app-file-input {
+    border: none;
+}
+
+/* Buttons */
+.loan-app-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.loan-app-button:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* Back Button */
+.loan-app-button-back {
+    background: #777;
+    color: white;
+}
+
+/* Next/Submit Button */
+.loan-app-button-next {
+    background: #4caf50;
+    color: white;
+}
+
+/* Review Section */
+.loan-app-review p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #444;
+}

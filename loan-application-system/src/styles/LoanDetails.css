@@ -1,0 +1,157 @@
+.loan-details-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+    position: relative;
+    padding: 20px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Default Blue for Pending */
+.progress-fill {
+    background-color: #007bff;
+}
+
+/* Color Overrides */
+.progress-fill.approved {
+    background-color: green;
+}
+
+.progress-fill.rejected {
+    background-color: red;
+}
+
+.progress-fill.under-review {
+    background-color: #ffa500; /* Orange for "Under Review" */
+}
+
+.progress-step {
+    width: 40px;
+    height: 40px;
+    background: #ddd;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    font-weight: bold;
+    color: #555;
+    position: relative;
+    transition: background 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add step labels */
+.progress-step span {
+    position: absolute;
+    top: -30px;  /* Moves text above the step */
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+}
+
+/* Active step */
+.progress-step.active {
+    background: #007bff;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Approved step */
+.progress-step.approved {
+    background: green !important;
+    color: white;
+}
+
+/* Rejected step */
+.progress-step.rejected {
+    background: red !important;
+    color: white;
+}
+
+/* Checkmark or cross icon */
+.progress-step.approved::after {
+    content: '✔';
+    font-size: 18px;
+    color: white;
+}
+
+.progress-step.rejected::after {
+    content: '✖';
+    font-size: 18px;
+    color: white;
+}
+
+.back-btn {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.back-btn:hover {
+    background: #0056b3;
+}
+.progress-fill {
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.progress-fill.pending {
+    background-color: yellow !important;  /* Make sure yellow is applied */
+}
+/* Default color */
+.progress-fill {
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+/* Default style */
+.progress-fill {
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+/* Specific colors for each status */
+.progress-fill.Pending, .progress-fill.Pending {
+    background-color: yellow !important;
+}
+
+.progress-fill.approved {
+    background-color: green !important;
+}
+
+.progress-fill.rejected {
+    background-color: red !important;
+}
+

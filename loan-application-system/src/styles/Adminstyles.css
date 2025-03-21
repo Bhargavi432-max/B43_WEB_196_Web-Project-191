@@ -1,0 +1,122 @@
+.admin-dashboard {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.admin-dashboard h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.loan-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.loan-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-left: 6px solid #007bff;
+    transition: transform 0.2s ease-in-out;
+}
+
+.loan-card:hover {
+    transform: translateY(-5px);
+}
+
+.loan-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.loan-card p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.loan-status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.status-pending {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.status-approved {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-approve {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-approve:hover {
+    background-color: #218838;
+}
+
+.btn-schedule {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-schedule:hover {
+    background-color: #0056b3;
+}
+
+.btn-view {
+    background-color: #ff6600;
+    color: white;
+}
+
+.btn-view:hover {
+    background-color: #cc5200;
+}
+
+.scheduled {
+    color: gray;
+    font-size: 14px;
+}
+
+/* Document preview styling */
+.document-preview {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.document-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
