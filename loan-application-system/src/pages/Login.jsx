@@ -10,10 +10,10 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const { setToken, setUser } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const API_BASE_URL = "https://loanbackend-1.onrender.com";
     const handleLogin = async () => {
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/login", {
+            const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
                 email,
                 password
             });

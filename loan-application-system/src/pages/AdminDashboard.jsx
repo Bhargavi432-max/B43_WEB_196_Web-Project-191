@@ -8,11 +8,11 @@ const AdminDashboard = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [applications, setApplications] = useState([]);
-
+    const API_BASE_URL = "https://loanbackend-1.onrender.com";
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/loans/all-applications", {
+                const response = await axios.get(`${API_BASE_URL}/api/loans/all-applications`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                 });
                 setApplications(response.data);
@@ -27,7 +27,7 @@ const AdminDashboard = () => {
     const handleApprove = async (id) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.patch(`http://localhost:5000/api/loans/${id}/approve`, {}, {
+            await axios.patch(`${API_BASE_URL}/api/loans/${id}/approve`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setApplications(applications.map(app => app._id === id ? { ...app, status: "Approved" } : app));

@@ -9,11 +9,12 @@ const UserDashboard = () => {
     const navigate = useNavigate();
     const [applications, setApplications] = useState([]);
     const [repayments, setRepayments] = useState([]);
+    const API_BASE_URL = "https://loanbackend-1.onrender.com";
     useEffect(() => {
         const fetchApplications = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const response = await axios.get("http://localhost:5000/api/loans/my-applications", {
+                const response = await axios.get(`${API_BASE_URL}/api/loans/my-applications`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setApplications(response.data);

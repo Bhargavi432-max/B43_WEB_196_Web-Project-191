@@ -8,7 +8,7 @@ const Signup = () => {
     const [userDetails, setUserDetails] = useState({ name: "", email: "", password: "" });
     const { setToken } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const API_BASE_URL = "https://loanbackend-1.onrender.com";
     const validateEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
@@ -35,7 +35,7 @@ const Signup = () => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/register", {
+            const response = await axios.post(`${API_BASE_URL}/api/auth/register`, {
                 ...userDetails,
                 role: "user",
             });

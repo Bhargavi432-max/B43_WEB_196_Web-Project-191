@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 const ReviewSubmit = ({ formData, prevStep }) => {
     const navigate = useNavigate();
     const { token, user } = useContext(AuthContext);
-
+    const API_BASE_URL = "https://loanbackend-1.onrender.com";
     const handleSubmit = async () => {
         if (!token || !user) {
             alert("Authentication required. Please log in again.");
@@ -29,7 +29,7 @@ const ReviewSubmit = ({ formData, prevStep }) => {
         try {
             console.log("Sending loan application:", loanData);
 
-            await axios.post("http://localhost:5000/api/loans/apply", loanData, {
+            await axios.post(`${API_BASE_URL}/api/loans/apply`, loanData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "multipart/form-data", 

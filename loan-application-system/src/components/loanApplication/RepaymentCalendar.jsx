@@ -10,12 +10,12 @@ const RepaymentCalendar = () => {
     const { user } = useContext(AuthContext);
     const [selectedPayment, setSelectedPayment] = useState(null);
     const [payments, setPayments] = useState([]);
-
+    const API_BASE_URL = "https://loanbackend-1.onrender.com"; 
     useEffect(() => {
         const fetchRepayments = async () => {
             try {
                 const userId = user.id;
-                const response = await fetch(`http://localhost:5000/api/repayments/calendar/${userId}`, {
+                const response = await fetch(`${API_BASE_URL}/api/repayments/calendar/${userId}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const RepaymentCalendar = () => {
 
     const handlePayment = async (repaymentId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/repayments/pay/${repaymentId}`, {
+            const response = await fetch(`${API_BASE_URL}/api/repayments/pay/${repaymentId}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

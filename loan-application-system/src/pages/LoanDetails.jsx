@@ -9,12 +9,12 @@ const LoanDetails = () => {
     const { loanId } = useParams();
     const navigate = useNavigate();
     const [loan, setLoan] = useState(null);
-
+    const API_BASE_URL = "https://loanbackend-1.onrender.com"; 
     useEffect(() => {
         const fetchLoanDetails = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const response = await axios.get(`http://localhost:5000/api/loans/${loanId}`, {
+                const response = await axios.get(`${API_BASE_URL}/api/loans/${loanId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setLoan(response.data);

@@ -9,9 +9,9 @@ const ScheduleRepayments = () => {
   const [tenure, setTenure] = useState(12);
   const [interestRate, setInterestRate] = useState(10);
   const [startDate, setStartDate] = useState("");
-
+  const API_BASE_URL = "https://loanbackend-1.onrender.com"; 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/loans/${loanId}`, {
+    axios.get(`${API_BASE_URL}/api/loans/${loanId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
     })
     .then((res) => setLoan(res.data))
@@ -19,7 +19,7 @@ const ScheduleRepayments = () => {
   }, [loanId]);
 
   const handleSchedule = () => {
-    axios.post(`http://localhost:5000/api/repayments/schedule/${loanId}`, { tenure, interestRate, startDate }, {
+    axios.post(`${API_BASE_URL}/api/repayments/schedule/${loanId}`, { tenure, interestRate, startDate }, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
     })
     .then(() => {
