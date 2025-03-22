@@ -13,6 +13,7 @@ The **Loan Application System** is a web-based platform that allows users to man
 ## Deployed Link
 ```sh
 https://67de1f5903dc035ee55a3711--dainty-snickerdoodle-0711b8.netlify.app/
+```
 ---
 
 ## Tech Stack
