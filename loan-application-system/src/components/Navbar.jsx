@@ -23,7 +23,10 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <h2>Loan Management System</h2>
+            <div className="nav-left">
+                <img src="/logo_loan.png" alt="Logo" className="nav-logo" />
+                <h2>Loan Management System</h2>
+            </div>
             <div className="nav-buttons">
                 <button onClick={handleDashboardRedirect}>Dashboard</button>
                 <button onClick={() => navigate("/repayments")}>Repayment Calendar</button>

@@ -9,6 +9,7 @@ const AdminDashboard = () => {
     const navigate = useNavigate();
     const [applications, setApplications] = useState([]);
     const API_BASE_URL = "https://loanbackend-1.onrender.com";
+
     useEffect(() => {
         const fetchApplications = async () => {
             try {
@@ -37,6 +38,19 @@ const AdminDashboard = () => {
         }
     };
 
+    const handleReject = async (id) => {
+        try {
+            const token = localStorage.getItem("token");
+            await axios.patch(`${API_BASE_URL}/api/loans/${id}/reject`, {}, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            setApplications(applications.map(app => app._id === id ? { ...app, status: "Rejected" } : app));
+        } catch (error) {
+            console.error("Rejection error:", error.response?.data);
+            alert(error.response?.data?.message || "Rejection failed");
+        }
+    };
+
     return (
         <div className="admin-dashboard">
             <h2>Admin Dashboard</h2>
@@ -50,7 +64,11 @@ const AdminDashboard = () => {
                         <p><strong>Loan Amount:</strong> {loan.loanAmount} rupees</p>
                         <p>
                             <strong>Status:</strong>
-                            <span className={`loan-status ${loan.status === "Approved" ? "status-approved" : "status-pending"}`}>
+                            <span className={`loan-status ${
+                                loan.status === "Approved" ? "status-approved" : 
+                                loan.status === "Rejected" ? "status-rejected" : 
+                                "status-pending"
+                            }`}>
                                 {loan.status}
                             </span>
                         </p>
@@ -68,7 +86,10 @@ const AdminDashboard = () => {
                         )}
 
                         {loan.status === "Pending" ? (
-                            <button className="btn btn-approve" onClick={() => handleApprove(loan._id)}>Approve</button>
+                            <>
+                                <button className="btn btn-approve" onClick={() => handleApprove(loan._id)}>Approve</button>
+                                <button className="btn btn-reject" onClick={() => handleReject(loan._id)}>Reject</button>
+                            </>
                         ) : loan.status === "Approved" && !loan.hasRepaymentSchedule ? (
                             <button className="btn btn-schedule" onClick={() => navigate(`/schedule-repayments/${loan._id}`)}>
                                 Schedule Repayments

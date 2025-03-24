@@ -79,6 +79,17 @@
     background-color: #28a745;
     color: white;
 }
+.btn-reject {
+    background-color: #dc3545;
+    color: white;
+}
+.btn-reject:hover {
+    background-color: #c82333;
+}
+.status-rejected {
+    background-color: red;
+    color:white;
+}
 
 .btn-approve:hover {
     background-color: #218838;
